@@ -1,0 +1,292 @@
+:root {
+  --primary-color: #4caf50;
+  --danger-color: #dc3545;
+  --secondary-color: #6c757d;
+  --light-gray: #f8f9fa;
+  --border-radius: 4px;
+}
+
+.search-container {
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.search-status {
+  position: absolute;
+  left: 0;
+  bottom: -18px;
+  font-size: 0.85em;
+  color: #666;
+  width: 100%;
+  text-align: left;
+  padding: 2px 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.search-container.has-search .search-status {
+  opacity: 1;
+}
+
+.search-status.results-found {
+  color: var(--primary-color);
+}
+
+.search-status.no-results {
+  color: var(--danger-color);
+}
+
+.filter-controls {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+}
+
+.todo-container {
+  margin-top: 20px;
+}
+
+.todo-item {
+  padding: 12px;
+  margin: 8px 0;
+  background: var(--light-gray);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.todo-item.expired {
+  background-color: #f0f0f0;
+  opacity: 0.7;
+}
+
+.todo-item.expired .todo-text {
+  color: #888;
+}
+
+.todo-item.expired .tag,
+.todo-item.expired .deadline {
+  color: #aaa;
+}
+
+.todo-checkbox {
+  margin-right: 10px;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}
+
+.todo-content {
+  flex-grow: 1;
+  margin: 0 8px;
+}
+
+.todo-text {
+  display: block;
+  word-break: break-word;
+  margin-bottom: 5px;
+  font-size: 1.05em;
+  transition: all 0.2s;
+}
+
+.todo-text.completed {
+  text-decoration: line-through;
+  color: var(--secondary-color);
+}
+
+.todo-meta {
+  display: flex;
+  gap: 10px;
+  font-size: 0.8em;
+  color: #666;
+  margin-top: 5px;
+}
+
+.tag {
+  padding: 3px 8px;
+  background: #e9ecef;
+  border-radius: 10px;
+  font-size: 0.85em;
+}
+
+.deadline {
+  font-size: 0.85em;
+}
+
+.deadline-today {
+  color: #ff5722;
+  font-weight: bold;
+  background: rgba(255, 87, 34, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.deadline-soon {
+  color: var(--danger-color);
+  font-weight: bold;
+  background: rgba(220, 53, 69, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* 修改待办事项操作按钮 */
+.todo-actions {
+  display: flex;
+  gap: 4px; /* 减小按钮间距 */
+}
+
+/* 操作按钮样式 */
+.todo-actions .btn {
+  padding: 5px 8px; /* 减小内边距 */
+  font-size: 0.85em; /* 减小字体大小 */
+  border-radius: 5px; /* 稍小的圆角 */
+  min-width: auto; /* 取消最小宽度限制 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); /* 更柔和的阴影 */
+  transition: all 0.2s ease; /* 平滑过渡 */
+}
+
+/* 按钮悬停效果 */
+.todo-actions .btn:hover {
+  transform: translateY(-2px); /* 减小上浮幅度 */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12); /* 更柔和的悬停阴影 */
+}
+
+/* 图标按钮样式 */
+.todo-actions .btn-sm {
+  padding: 5px 8px; /* 减小内边距 */
+  font-size: 0.8em; /* 减小字体大小 */
+}
+
+/* 置顶按钮特殊处理 */
+.pin-btn {
+  font-size: 0.8em; /* 减小图标大小 */
+  padding: 5px 7px; /* 减小内边距 */
+}
+
+/* 编辑和删除按钮 */
+.edit-btn,
+.delete-btn {
+  padding: 5px 8px; /* 减小内边距 */
+  font-size: 0.85em; /* 减小字体大小 */
+}
+
+/* 按钮图标间距 */
+.todo-actions .btn span {
+  margin-right: 3px; /* 减小图标与文字间距 */
+}
+
+/* 置顶按钮样式 */
+.pin-btn {
+  background-color: #ffc107;
+  color: #333;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pin-btn.pinned {
+  background-color: #ff9800;
+  position: relative;
+}
+
+.pin-btn.pinned::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 6px;
+  height: 6px;
+  background-color: #e53935;
+  border-radius: 50%;
+}
+
+.todo-item.pinned {
+  border-left: 4px solid #ff9800;
+  background-color: #fff8e1;
+  order: -1;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.prompt-dialog,
+.dialog {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.prompt-title {
+  margin-bottom: 15px;
+  text-align: center;
+  color: #333;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  font-family: inherit;
+  font-size: 0.95em;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.empty-state {
+  text-align: center;
+  color: #666;
+  padding: 40px 20px;
+  background: var(--light-gray);
+  border-radius: 8px;
+  font-size: 1.1em;
+}
+
+.empty-state p {
+  margin-bottom: 5px;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.filter-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.filter-controls .form-input {
+  flex: 1;
+}
+
+.action-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

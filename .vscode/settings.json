@@ -1,0 +1,14 @@
+{
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit" // 或改为数组形式
+  },
+//  "prettier.enable": false,
+  "editor.formatOnSave": true, // 启用保存时格式化
+  "editor.defaultFormatter": "esbenp.prettier-vscode", // 使用 Prettier（如果安装了）
+  "editor.tabSize": 2, // 缩进 2 空格（根据项目需求调整）
+  "editor.insertSpaces": true // 使用空格而非 Tab
+}

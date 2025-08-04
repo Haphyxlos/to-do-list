@@ -1,0 +1,55 @@
+/* 全局变量 - 类似C++的常量 */
+:root {
+  --primary-color: #4caf50; /* 主色调 - 绿色 */
+  --danger-color: #dc3545; /* 危险操作色 - 红色 */
+  --secondary-color: #6c757d; /* 次要色 - 灰色 */
+  --light-gray: #f8f9fa; /* 浅灰色 */
+  --border-radius: 4px; /* 圆角大小 */
+}
+
+/* 基础重置 - 清除浏览器默认样式 */
+* {
+  /* 通配符选择器，选择所有元素 */
+  margin: 0; /* 外边距清零 */
+  padding: 0; /* 内边距清零 */
+  box-sizing: border-box; /* 盒模型：宽高包含border和padding */
+}
+
+body {
+  font-family: "Microsoft YaHei", sans-serif; /* 字体 */
+  line-height: 1.6; /* 行高 */
+  color: #333; /* 文字颜色 */
+  background-color: #f5f5f5; /* 背景色 */
+}
+
+/* 按钮基础样式 */
+.btn {
+  padding: 8px 12px; /* 内边距 */
+  border: none; /* 无边框 */
+  border-radius: var(--border-radius); /* 使用变量 */
+  cursor: pointer; /* 鼠标指针变为手形 */
+  transition: all 0.2s; /* 过渡效果 */
+  font-size: 14px; /* 字体大小 */
+}
+
+/* 按钮颜色变体 */
+.btn-primary {
+  background-color: var(--primary-color); /* 使用变量 */
+  color: white; /* 文字颜色 */
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+/* 小号按钮 */
+.btn-sm {
+  padding: 4px 8px; /* 更小的内边距 */
+  font-size: 12px; /* 更小的字体 */
+}

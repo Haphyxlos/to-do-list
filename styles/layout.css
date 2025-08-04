@@ -1,0 +1,46 @@
+/* 应用布局 */
+.app-header {
+  text-align: center; /* 文本居中 */
+  margin-bottom: 20px; /* 底部外边距 */
+}
+
+.app-main {
+  max-width: 600px; /* 最大宽度 */
+  margin: 0 auto; /* 水平居中 */
+  padding: 0 20px; /* 左右内边距 */
+}
+
+/* 弹窗定位 */
+.prompt-container,
+.dialog-container {
+  position: fixed; /* 固定定位 */
+  top: 0; /* 顶部对齐 */
+  left: 0; /* 左侧对齐 */
+  width: 100%; /* 全宽 */
+  height: 100%; /* 全高 */
+  display: none; /* 默认隐藏 */
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  background: rgba(0, 0, 0, 0.5); /* 半透明黑色背景 */
+  z-index: 1000; /* 层级，确保在最上层 */
+}
+
+/* 显示弹窗的类 */
+.prompt-container.show,
+.dialog-container.show {
+  display: flex; /* 显示为弹性盒子 */
+}
+
+/* 表单操作按钮布局 */
+.form-actions,
+.dialog-actions {
+  display: flex; /* 弹性布局 */
+  gap: 10px; /* 子元素间距 */
+  margin-top: 15px; /* 顶部外边距 */
+}
+
+/* 按钮等宽 */
+.form-actions button,
+.dialog-actions button {
+  flex: 1; /* 弹性扩展，等宽 */
+}

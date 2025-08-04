@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>待办事项</title>
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/layout.css" />
+    <link rel="stylesheet" href="styles/components.css" />
+    <link rel="stylesheet" href="styles/background.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>待办事项</h1>
+    </header>
+
+    <main class="app-main">
+      <div class="controls">
+        <div class="search-container">
+          <div class="filter-controls">
+            <input
+              type="text"
+              id="search-input"
+              class="form-input"
+              placeholder="搜索任务..."
+            />
+            <select id="tag-filter" class="form-input">
+              <option value="">所有标签</option>
+            </select>
+          </div>
+          <div id="search-status" class="search-status"></div>
+        </div>
+
+        <div class="action-controls">
+          <button id="Add" class="btn btn-primary">
+            <span>➕</span> 添加待办事项
+          </button>
+          <button id="Del" class="btn btn-danger">
+            <span>🗑️</span> 清空所有事项
+          </button>
+        </div>
+      </div>
+
+      <div id="ToDoList" class="todo-container"></div>
+    </main>
+
+    <div id="custom-prompt-container" class="prompt-container">
+      <div class="prompt-dialog">
+        <h3 id="prompt-title" class="prompt-title">添加待办事项</h3>
+        <form id="todo-form" class="prompt-form">
+          <input
+            type="text"
+            id="todo-input"
+            class="form-input"
+            placeholder="输入待办事项..."
+            required
+          />
+          <input
+            type="text"
+            id="todo-tag"
+            class="form-input"
+            placeholder="标签 (可选)"
+            pattern="[\u4e00-\u9fa5a-zA-Z0-9]*"
+          />
+          <input
+            type="date"
+            id="todo-deadline"
+            class="form-input"
+            min="2025-01-01"
+          />
+          <div class="form-actions">
+            <button type="button" id="prompt-cancel" class="btn btn-secondary">
+              取消
+            </button>
+            <button type="submit" id="prompt-submit" class="btn btn-primary">
+              添加
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="confirm-dialog-container" class="dialog-container">
+      <div class="dialog">
+        <p id="confirm-message" class="dialog-message"></p>
+        <div class="dialog-actions">
+          <button id="confirm-cancel" class="btn btn-secondary">取消</button>
+          <button id="confirm-ok" class="btn btn-danger">确定</button>
+        </div>
+      </div>
+    </div>
+
+    <template id="todo-item-template">
+      <div class="todo-item" data-id="">
+        <input type="checkbox" class="todo-checkbox" />
+        <div class="todo-content">
+          <span class="todo-text"></span>
+          <div class="todo-meta"></div>
+        </div>
+        <div class="todo-actions">
+          <button class="pin-btn btn btn-sm btn-warning">📌</button>
+          <button class="edit-btn btn btn-sm btn-secondary">编辑</button>
+          <button class="delete-btn btn btn-sm btn-danger">删除</button>
+        </div>
+      </div>
+    </template>
+
+    <template id="empty-state-template">
+      <div class="empty-state">
+        <p>暂无待办事项</p>
+        <small>点击上方按钮添加</small>
+      </div>
+    </template>
+
+    <script src="scripts/main.js" type="module"></script>
+    <script src="scripts/custom-prompt.js" type="module"></script>
+    <script src="scripts/confirm-dialog.js" type="module"></script>
+  </body>
+</html>
